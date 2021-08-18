@@ -44,9 +44,9 @@
 | block         | string     | null: false                    |
 | bulding       | string     |                                |
 | phone_number  | string     | null: false                    |
+| purchase_info | references | null: false, foreign_key: true |
 
 - belongs_to :purchase_info
-- belongs_to :user
 
 
 ## Purchase_info
