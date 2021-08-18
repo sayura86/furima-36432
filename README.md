@@ -12,7 +12,6 @@
 | birthday           | date   | null: false                    |
 
 - has_many :items
-- has_one :Shipping_addresses
 
 ## Items
 
@@ -43,14 +42,13 @@
 | bulding       | string     |                                |
 | phone_number  | string     | null: false                    |
 
-- belongs_to :user
 - belongs_to :purchase_info
 
 ## Purchase_info
 
 | Column              | Type       | Options                        |
 | ------------------- | ---------- | ------------------------------ |
-| product             | string     | null: false, foreign_key: true |
+| product             | references | null: false, foreign_key: true |
 | user                | references | null: false, foreign_key: true |
 
 - belongs_to :user
