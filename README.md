@@ -12,6 +12,9 @@
 | birthday           | date   | null: false                    |
 
 - has_many :items
+- has_many :Shipping_addresses
+- has_many :Purchase_info
+
 
 ## Items
 
@@ -36,13 +39,15 @@
 | Column        | Type       | Options                        |
 | ------------- | ---------- | ------------------------------ |
 | postal_code   | string     | null: false                    |
-| prefecture_id | string     | null: false                    |
+| prefecture_id | integer    | null: false                    |
 | city          | string     | null: false                    |
 | block         | string     | null: false                    |
 | bulding       | string     |                                |
 | phone_number  | string     | null: false                    |
 
 - belongs_to :purchase_info
+- belongs_to :user
+
 
 ## Purchase_info
 
