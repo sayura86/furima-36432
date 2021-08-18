@@ -26,7 +26,7 @@
 | ship_from_id     | integer    | null: false                    |
 | shipping_days_id | integer    | null: false                    |
 | price            | integer    | null: false                    |
-| user_id          | references | null: false, foreign_key: true |
+| user             | references | null: false, foreign_key: true |
 
 - belongs_to :user
 - has_one :purchase_info
@@ -42,7 +42,6 @@
 | block         | string     | null: false                    |
 | bulding       | string     |                                |
 | phone_number  | string     | null: false                    |
-| user_id       | references | null: false, foreign_key: true |
 
 - belongs_to :user
 - belongs_to :purchase_info
@@ -51,8 +50,8 @@
 
 | Column              | Type       | Options                        |
 | ------------------- | ---------- | ------------------------------ |
-| product             | string     |                                |
-| user_id             | references | null: false, foreign_key: true |
+| product             | string     | null: false, foreign_key: true |
+| user                | references | null: false, foreign_key: true |
 
 - belongs_to :user
 - belongs_to :item
