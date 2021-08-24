@@ -28,27 +28,27 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Description can't be blank")
       end
       it 'categoryが未選択だと出品できない' do
-        @item.category_id = 0
+        @item.category_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include('Category Select')
       end
       it 'conditionが未選択だと出品できない' do
-        @item.condition_id = 0
+        @item.condition_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include('Condition Select')
       end
       it 'delivery_feeが未選択だと出品できない' do
-        @item.delivery_fee_id = 0
+        @item.delivery_fee_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include('Delivery fee Select')
       end
       it 'ship_fromが未選択だと出品できない' do
-        @item.ship_from_id = 0
+        @item.ship_from_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include('Ship from Select')
       end
       it 'shipping_daysが未選択だと出品できない' do
-        @item.shipping_days_id = 0
+        @item.shipping_days_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include('Shipping days Select')
       end
