@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   has_many :items
-  # has_many :Shipping_addresses
-  # has_many :Purchase_info
+  has_many :Shipping_addresses
+  has_many :Purchase_info
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
