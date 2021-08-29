@@ -1,13 +1,13 @@
 class PurchaseInfosController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_items
   def index
-    @item = Item.find(params[:item_id])
     @address = Address.new
-    redirect_to root_path if @item.purchase_info.present? && !(params[:item_id] == current_user.id)
+    # redirect_to root_path if @item.purchase_info.present? && !(params[:item_id] == current_user.id)
+    redirect_to root_path if @item.purchase_info.present? && !(@item.user == current_user)
   end
 
   def create
-    @item = Item.find(params[:item_id])
     @address = Address.new(purchase_params)
     if @address.valid?
       pay_item
@@ -33,5 +33,9 @@ class PurchaseInfosController < ApplicationController
       card: purchase_params[:token],
       currency: 'jpy'
     )
+  end
+
+  def set_items
+    @item = Item.find(params[:item_id])
   end
 end

@@ -12,6 +12,9 @@ RSpec.describe Address, type: :model do
       it '全ての値が正しく入力されていれば購入できる' do
         expect(@address).to be_valid
       end
+      it '建物名が抜けていても登録できること' do
+        @address.building = ''
+      end
     end
     context '商品購入がうまくいかない時' do
       it 'postal_codeが空だと購入できない' do
@@ -53,6 +56,26 @@ RSpec.describe Address, type: :model do
         @address.token = nil
         @address.valid?
         expect(@address.errors.full_messages).to include("Token can't be blank")
+      end
+      it 'user_idが空では登録できないこと' do
+        @address.user_id = nil
+        @address.valid?
+        expect(@address.errors.full_messages).to include("User can't be blank")
+      end
+      it 'item_idが空では登録できないこと' do
+        @address.item_id = nil
+        @address.valid?
+        expect(@address.errors.full_messages).to include("Item can't be blank")
+      end
+      it '電話番号が12桁以上では登録できないこと' do
+        @address.phone_number = '123456789123'
+        @address.valid?
+        expect(@address.errors.full_messages).to include('Phone number is invalid')
+      end
+      it '電話番号が英数混合では登録できないこと' do
+        @address.phone_number = 'aabb112233'
+        @address.valid?
+        expect(@address.errors.full_messages).to include('Phone number is invalid')
       end
     end
   end
