@@ -6,5 +6,6 @@ FactoryBot.define do
     block           { '1-1' }
     phone_number    { '09012345678' }
     token { 'tok_abcdefghijk00000000000000000' }
+    building { 'コーポ' }
   end
 end
