@@ -3,8 +3,7 @@ class PurchaseInfosController < ApplicationController
   before_action :set_items
   def index
     @address = Address.new
-    # redirect_to root_path if @item.purchase_info.present? && !(params[:item_id] == current_user.id)
-    redirect_to root_path if @item.purchase_info.present? && !(@item.user == current_user)
+    redirect_to root_path if @item.purchase_info.present? || (@item.user.id == current_user.id)
   end
 
   def create

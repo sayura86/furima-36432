@@ -14,6 +14,7 @@ RSpec.describe Address, type: :model do
       end
       it '建物名が抜けていても登録できること' do
         @address.building = ''
+        expect(@address).to be_valid
       end
     end
     context '商品購入がうまくいかない時' do
