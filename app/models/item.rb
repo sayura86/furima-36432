@@ -15,7 +15,6 @@ class Item < ApplicationRecord
     validates :image
     validates :price
     validates :description
-    validates :image
   end
 
   validates :category_id, :condition_id, :delivery_fee_id, :ship_from_id, :shipping_days_id,
